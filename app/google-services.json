@@ -1,0 +1,105 @@
+{
+  "project_info": {
+    "project_number": "1013981986877",
+    "project_id": "anavarrotecsupfirebase",
+    "storage_bucket": "anavarrotecsupfirebase.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1013981986877:android:e67390afe7bc0d3d70ea54",
+        "android_client_info": {
+          "package_name": "com.tecsup"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3Tz0l50RVJUlPkslgmkH6uMuwSjlpxhk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1013981986877:android:70e10332c62350d570ea54",
+        "android_client_info": {
+          "package_name": "com.tecsup.pm_preguntas_lab11"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3Tz0l50RVJUlPkslgmkH6uMuwSjlpxhk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1013981986877:android:0f8a6ffce305234a70ea54",
+        "android_client_info": {
+          "package_name": "com.tecsup.room"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3Tz0l50RVJUlPkslgmkH6uMuwSjlpxhk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1013981986877:android:21fc99caa326078470ea54",
+        "android_client_info": {
+          "package_name": "edu.pe.anavarro_lab12"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3Tz0l50RVJUlPkslgmkH6uMuwSjlpxhk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1013981986877:android:0510d13d61c746a670ea54",
+        "android_client_info": {
+          "package_name": "edu.pe.taskmanager_pro"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3Tz0l50RVJUlPkslgmkH6uMuwSjlpxhk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
