@@ -1,0 +1,105 @@
+CONCEPTOS TECNICOS - TaskManager Pro
+
+1. MVVM (Model-View-ViewModel)
+   MVVM es un patron de arquitectura de software que separa la logica de negocio de la interfaz de usuario.
+
+   - Model: Representa los datos y la logica de negocio. En nuestro proyecto incluye:
+     * Task.kt: Modelo de datos de las tareas
+     * TaskRepository.kt y AuthRepository.kt: Manejan las operaciones de datos
+
+   - View: La interfaz de usuario construida con Jetpack Compose. Incluye:
+     * LoginScreen.kt, RegisterScreen.kt
+     * TaskListScreen.kt, CreateEditTaskScreen.kt
+
+   - ViewModel: Actua como intermediario entre Model y View. Contiene:
+     * AuthViewModel.kt: Maneja estados de autenticacion
+     * TaskViewModel.kt: Maneja estados y operaciones de tareas
+
+   Ventajas de MVVM:
+   - Separacion clara de responsabilidades
+   - Facilita las pruebas unitarias
+   - La UI se actualiza automaticamente cuando cambian los datos
+   - El ViewModel sobrevive a cambios de configuracion
+
+2. FIREBASE AUTHENTICATION
+   Servicio de Firebase para gestionar la autenticacion de usuarios.
+
+   Funcionalidades implementadas:
+   - Registro de usuarios con email y contraseña
+   - Inicio de sesion con credenciales
+   - Cierre de sesion
+   - Verificacion de estado de autenticacion
+
+   En nuestro proyecto:
+   - AuthRepository.kt maneja las operaciones de Firebase Auth
+   - Usa corrutinas de Kotlin para operaciones asincronas
+   - Retorna Result<T> para manejar exitos y errores
+
+3. FIRESTORE
+   Base de datos NoSQL en la nube de Firebase para almacenar y sincronizar datos.
+
+   Caracteristicas:
+   - Base de datos en tiempo real
+   - Sincronizacion automatica entre dispositivos
+
+   Estructura en nuestro proyecto:
+   - Coleccion "tasks" que almacena todas las tareas
+   - Cada tarea tiene un documento con campos:
+     * id, userId, title, priority, dueDate, status, createdAt
+
+   Implementacion:
+   - TaskRepository.kt usa Firestore para CRUD
+   - getTasks() retorna un Flow para actualizaciones en tiempo real
+   - Usa whereEqualTo para filtrar tareas por usuario
+
+4. JETPACK COMPOSE
+   Kit de herramientas moderno de Android para crear UI nativas de forma declarativa.
+
+   Componentes usados en el proyecto:
+   - TextField para inputs de datos
+   - Button para acciones
+   - LazyColumn para listas eficientes
+   - Scaffold para estructura basica de pantalla
+   - Navigation Compose para navegacion
+
+   State management:
+   - remember para estado local
+   - StateFlow desde ViewModel para estado compartido
+   - collectAsState para observar cambios
+
+5. CRUD (Create, Read, Update, Delete)
+   Operaciones basicas para gestionar datos en cualquier aplicacion.
+
+   Implementacion en TaskManager Pro:
+
+   CREATE - Crear tarea:
+   - createTask() en TaskRepository
+   - Genera ID unico automaticamente
+   - Guarda en Firestore con todos los campos
+
+   READ - Leer tareas:
+   - getTasks() retorna Flow<List<Task>>
+   - Escucha cambios en tiempo real con addSnapshotListener
+   - Filtra tareas por userId
+
+   UPDATE - Actualizar tarea:
+   - updateTask() actualiza documento completo
+   - markAsCompleted() actualiza solo el campo status
+   - Cambios se reflejan inmediatamente en la UI
+
+   DELETE - Eliminar tarea:
+   - deleteTask() elimina documento de Firestore
+   - Actualizacion automatica en la lista
+
+FLUJO DE LA APLICACION:
+
+1. Usuario abre la app
+2. AuthViewModel verifica si hay sesion activa
+3. Si no hay sesion -> LoginScreen
+4. Usuario se registra o inicia sesion
+5. AuthRepository comunica con Firebase Auth
+6. Si es exitoso -> TaskListScreen
+7. TaskViewModel carga tareas del usuario desde Firestore
+8. Usuario puede crear, editar, completar o eliminar tareas
+9. Cambios se sincronizan en tiempo real con Firestore
+10. Usuario puede cerrar sesion y volver a LoginScreen

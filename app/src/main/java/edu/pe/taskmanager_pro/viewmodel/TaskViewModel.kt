@@ -20,6 +20,13 @@ class TaskViewModel : ViewModel() {
     private val _message = MutableStateFlow<String?>(null)
     val message: StateFlow<String?> = _message
 
+    private val _selectedTask = MutableStateFlow<Task?>(null)
+    val selectedTask: StateFlow<Task?> = _selectedTask
+
+    fun selectTask(task: Task?) {
+        _selectedTask.value = task
+    }
+
     fun loadTasks(userId: String) {
         viewModelScope.launch {
             repository.getTasks(userId).collect { taskList ->

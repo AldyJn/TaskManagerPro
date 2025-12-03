@@ -1,13 +1,17 @@
 package edu.pe.taskmanager_pro.ui.screens
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.CalendarToday
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import edu.pe.taskmanager_pro.data.model.Task
+import java.text.SimpleDateFormat
+import java.util.*
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -21,6 +25,8 @@ fun CreateEditTaskScreen(
     var priority by remember { mutableStateOf(task?.priority ?: "Media") }
     var dueDate by remember { mutableStateOf(task?.dueDate ?: "") }
     var expanded by remember { mutableStateOf(false) }
+    var showDatePicker by remember { mutableStateOf(false) }
+    val datePickerState = rememberDatePickerState()
 
     val isLoading by taskViewModel.isLoading.collectAsState()
     val message by taskViewModel.message.collectAsState()
@@ -92,13 +98,49 @@ fun CreateEditTaskScreen(
                 }
             }
 
+            // Selector de fecha con calendario
             OutlinedTextField(
                 value = dueDate,
-                onValueChange = { dueDate = it },
-                label = { Text("Fecha límite (dd/mm/yyyy)") },
+                onValueChange = {},
+                readOnly = true,
+                label = { Text("Fecha límite") },
+                trailingIcon = {
+                    IconButton(onClick = { showDatePicker = true }) {
+                        Icon(Icons.Default.CalendarToday, "Seleccionar fecha")
+                    }
+                },
                 modifier = Modifier.fillMaxWidth(),
-                singleLine = true
+                singleLine = true,
+                shape = RoundedCornerShape(12.dp)
             )
+
+            // DatePicker Dialog
+            if (showDatePicker) {
+                DatePickerDialog(
+                    onDismissRequest = { showDatePicker = false },
+                    confirmButton = {
+                        TextButton(onClick = {
+                            datePickerState.selectedDateMillis?.let { millis ->
+                                val calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
+                                calendar.timeInMillis = millis
+                                val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+                                dateFormat.timeZone = TimeZone.getTimeZone("UTC")
+                                dueDate = dateFormat.format(calendar.time)
+                            }
+                            showDatePicker = false
+                        }) {
+                            Text("Aceptar")
+                        }
+                    },
+                    dismissButton = {
+                        TextButton(onClick = { showDatePicker = false }) {
+                            Text("Cancelar")
+                        }
+                    }
+                ) {
+                    DatePicker(state = datePickerState)
+                }
+            }
 
             Button(
                 onClick = {

@@ -1,0 +1,76 @@
+USO RESPONSABLE DE INTELIGENCIA ARTIFICIAL EN EL PROYECTO
+
+DECLARACION DE USO:
+En el desarrollo de TaskManager Pro se utilizo inteligencia artificial como herramienta
+de apoyo y aprendizaje, NO como generador automatico de codigo completo.
+
+COMO SE USO LA IA:
+
+1. CONSULTA Y COMPRENSION DE CONCEPTOS
+   - Se busco informacion sobre implementacion de Firebase
+
+2. RESOLUCION DE ERRORES ESPECIFICOS
+   - Debugging de errores de compilacion
+   - Comprension de mensajes de error de Firebase
+
+3. APOYO EN DOCUMENTACION
+   - Ayuda para redactar explicaciones tecnicas claras
+   - Estructuracion de la documentacion del proyecto
+   - Verificacion de terminologia correcta
+
+LO QUE NO HICIMOS:
+- NO copiamos codigo completo generado por IA sin entenderlo
+- NO entregamos codigo que no comprendemos
+- NO dependimos exclusivamente de la IA para aprender
+
+APRENDIZAJES OBTENIDOS:
+
+1. ARQUITECTURA MVVM
+   Comprendimos como separar responsabilidades en capas:
+   - Model para datos y logica de negocio
+   - View para UI declarativa con Compose
+   - ViewModel para estado y comunicacion
+
+2. FIREBASE INTEGRATION
+   Aprendimos a integrar servicios de Firebase:
+   - Configuracion de google-services.json
+   - Implementacion de Authentication
+   - Uso de Firestore para base de datos en tiempo real
+
+3. JETPACK COMPOSE
+   Dominamos conceptos de UI declarativa:
+   - Funciones composables
+   - Estado y recomposicion
+   - Navegacion entre pantallas
+
+4. PROGRAMACION ASINCRONA
+   Entendimos el manejo de operaciones asincronas:
+   - Corrutinas de Kotlin
+   - Flow para datos reactivos
+   - Manejo de Result<T> para errores
+
+REFLEXION SOBRE USO ETICO DE IA:
+
+La IA es una herramienta poderosa que debe usarse como complemento
+del aprendizaje, no como reemplazo. En este proyecto:
+
+- Usamos IA para ACELERAR el aprendizaje, no para evitarlo
+- ENTENDIMOS cada concepto antes de implementarlo
+- ADAPTAMOS soluciones a nuestro contexto especifico
+- DOCUMENTAMOS nuestro proceso de desarrollo
+
+El objetivo no es solo entregar un proyecto funcional, sino
+APRENDER los fundamentos de desarrollo Android moderno que
+nos serviran en nuestra carrera profesional.
+
+CONCLUSION:
+
+El uso responsable de IA en educacion implica:
+1. Usarla como tutor, no como solucionador automatico
+2. Validar y comprender cada sugerencia
+3. Mantener pensamiento critico y analitico
+4. Documentar honestamente su uso
+5. Priorizar el aprendizaje sobre la entrega rapida
+
+Este proyecto demuestra que la IA puede ser un aliado valioso
+en el aprendizaje cuando se usa de forma etica y responsable.
